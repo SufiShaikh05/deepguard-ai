@@ -1,0 +1,29 @@
+data:
+  train_dir: "data/processed/train"     # expects <dir>/real/*.jpg and <dir>/fake/*.jpg
+  val_dir: "data/processed/val"
+  test_dir: "data/processed/test"
+  image_size: 224
+  batch_size: 32
+  num_workers: 4
+
+model:
+  spatial_backbone: "xception"          # any timm model name works, e.g. "efficientnet_b0"
+  spatial_pretrained: true
+  freeze_spatial_backbone: false        # true = only train the fusion head at first
+  frequency_in_channels: 3              # DCT computed per RGB channel
+  frequency_feature_dim: 256            # output size of the frequency stream
+  fusion_hidden_dim: 256                # hidden layer size inside the fusion MLP
+  dropout: 0.3
+  num_classes: 2                        # index 0 = real, index 1 = fake
+
+training:
+  epochs: 20
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  early_stopping_patience: 5
+  device: "cuda"                        # falls back to CPU automatically if unavailable
+
+paths:
+  checkpoint_dir: "checkpoints"
+
+class_names: ["real", "fake"]

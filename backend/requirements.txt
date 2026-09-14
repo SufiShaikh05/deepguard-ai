@@ -1,0 +1,11 @@
+fastapi[standard]
+onnxruntime
+opencv-python-headless
+pillow
+numpy
+pydantic-settings
+torch
+timm
+grad-cam
+pyyaml
+pytest

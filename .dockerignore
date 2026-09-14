@@ -1,0 +1,7 @@
+**/venv/
+**/__pycache__/
+**/node_modules/
+ml_core/data/
+ml_core/notebooks/
+frontend/dist/
+.git/

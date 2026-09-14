@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #0a0d12;
+  --color-surface: #12161d;
+  --color-line: #262e3a;
+  --color-ink: #e8ebf0;
+  --color-ink-muted: #8b94a3;
+  --color-scan: #4dd9c9;
+  --color-alert: #f2596b;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@keyframes scan-sweep {
+  0% { top: -10%; }
+  100% { top: 110%; }
+}
+
+.animate-scan-sweep {
+  animation: scan-sweep 2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scan-sweep {
+    animation: none;
+  }
+}

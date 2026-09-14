@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+
+# Secrets
+.env
+.env.local
+
+# ML artifacts (large - never commit these)
+ml_core/data/raw/*
+ml_core/data/processed/*
+ml_core/checkpoints/*.pth
+!ml_core/data/raw/.gitkeep
+!ml_core/data/processed/.gitkeep
+!ml_core/checkpoints/.gitkeep
+backend/app/ml_assets/*.onnx
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/

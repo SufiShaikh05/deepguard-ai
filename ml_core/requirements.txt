@@ -1,0 +1,16 @@
+torch
+torchvision
+torchaudio
+timm
+opencv-python
+grad-cam
+onnx
+onnxruntime
+scikit-learn
+pandas
+numpy
+matplotlib
+pyyaml
+tqdm
+pillow
+pytest
