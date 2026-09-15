@@ -7,8 +7,8 @@ import io
 from fastapi.testclient import TestClient
 from PIL import Image
 
-from app.api.v1.endpoints.detection import get_gradcam_service, get_image_size, get_inference_service
 from app.main import app
+from app.api.v1.endpoints.detection import get_gradcam_service, get_image_size, get_inference_service
 
 
 class FakeGradCAMService:

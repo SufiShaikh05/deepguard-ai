@@ -11,8 +11,12 @@ const ACCEPTED_TYPES = {
 
 export default function UploadZone({ onFileSelected }) {
   const onDrop = useCallback(
-    (acceptedFiles) => {
-      if (acceptedFiles.length > 0) onFileSelected(acceptedFiles[0])
+    (acceptedFiles, fileRejections) => {
+      if (acceptedFiles.length > 0) {
+        onFileSelected(acceptedFiles[0])
+      } else if (fileRejections.length > 0 && fileRejections[0].file) {
+        onFileSelected(fileRejections[0].file)
+      }
     },
     [onFileSelected],
   )

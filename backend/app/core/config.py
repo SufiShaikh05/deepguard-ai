@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     ml_config_path: str = "../ml_core/configs/config.yaml"
 
     device: str = "cpu"
+    log_level: str = "INFO"
 
 
 settings = Settings()

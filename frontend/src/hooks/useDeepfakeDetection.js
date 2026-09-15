@@ -24,6 +24,7 @@ export function useDeepfakeDetection() {
       setResult(analysis)
       setStatus('success')
     } catch (error) {
+      console.error('Deepfake detection error:', error)
       const message =
         error.response?.data?.message || 'The scan failed. Check that the backend is running and try again.'
       setErrorMessage(message)

@@ -31,3 +31,7 @@ frontend/dist/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Playwright
+test-results/
+playwright-report/
