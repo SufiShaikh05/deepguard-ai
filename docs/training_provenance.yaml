@@ -1,0 +1,67 @@
+﻿checkpoint:
+  name: best_model.pth
+  source_training_platform: Google Colab
+  gpu: NVIDIA Tesla T4
+  gpu_memory_gb: 14.56
+
+code:
+  repository: SufiShaikh05/deepguard-ai
+  training_source_commit: "4f76ab2"
+  model: DualStreamNet
+  spatial_backbone: xception
+  spatial_pretrained: true
+  freeze_spatial_backbone: false
+
+dataset:
+  source: "Sowaiba01/Deepfake"
+  metadata_pairs: 5352
+  excluded_unmatched_fake: 74
+  excluded_unmatched_real: 74
+  identity_safe_seed: 20260920
+  train_pairs: 3746
+  validation_pairs: 803
+  test_pairs: 803
+  identity_leakage:
+    train_val: none
+    train_test: none
+    val_test: none
+
+training:
+  image_size: 224
+  batch_size: 32
+  workers: 2
+  learning_rate: 0.0001
+  weight_decay: 0.00001
+  maximum_epochs: 20
+  early_stopping_patience: 5
+  epochs_completed: 8
+  best_validation_accuracy: 0.9988
+
+test_results:
+  samples: 1606
+  loss: 0.017443
+  accuracy: 0.997509
+  precision_fake: 0.998752
+  recall_fake: 0.996264
+  f1: 0.997506
+  roc_auc: 0.999225
+  true_negative: 802
+  false_positive: 1
+  false_negative: 3
+  true_positive: 800
+
+deployment:
+  pytorch_checkpoint: "ml_core/checkpoints/best_model.pth"
+  onnx_model: "backend/app/ml_assets/model.onnx"
+  onnx_max_abs_difference: 0.00004578
+  onnx_tolerance: 0.0001
+  backend_cpu_provider: CPUExecutionProvider
+
+verification:
+  ml_tests_passed: 11
+  backend_tests_passed: 4
+  frontend_playwright_tests_passed: 4
+  live_fake_inference: passed
+  live_real_inference: passed
+  live_fake_gradcam: passed
+  live_real_gradcam: passed
