@@ -35,3 +35,5 @@ frontend/dist/
 # Playwright
 test-results/
 playwright-report/
+# Node.js dependencies and caches
+node_modules/
